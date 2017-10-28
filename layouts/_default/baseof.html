@@ -1,6 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	{{ partial "head" . }}
 
 	<body role="document">
@@ -16,7 +15,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			{{ partial "sidebar/sidebar" . }}
 			{{ partial "footer" . }}
 
@@ -24,12 +23,12 @@
 				<script src="{{ $.Site.BaseURL }}{{ . }}"></script>
 			{{- end }}
 
-			{{ with .Site.Params.highlightjs -}}
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
-			<script>hljs.initHighlightingOnLoad();</script>
-			{{ end }}
-
-			{{ template "_internal/google_analytics.html" . }}
+			{{ template "_internal/google_analytics_async.html" . }}
 		</div>
+
+    {{ with .Site.Params.addthis -}}
+      <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ . }}"></script>
+    {{- end }}
+
 	</body>
 </html>

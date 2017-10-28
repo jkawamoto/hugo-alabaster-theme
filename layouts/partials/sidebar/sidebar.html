@@ -8,7 +8,7 @@
 				<h1 class="logo logo-name">{{ .Site.Params.name }}</h1>
 			</a>
 		</p>
-		
+
 		{{ with .Site.Params.description -}}
 		<p class="blurb">{{ . | markdownify }}</p>
 		{{- end }}
@@ -17,6 +17,20 @@
 		{{ partial "sidebar/donate" . }}
 		{{ partial "sidebar/menu" . }}
 		{{ partial "sidebar/relations" . }}
+
+    {{ if isset .Site.Params "google_ad_client" }}
+    <hr/>
+    <p>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="{{ .Site.Params.google_ad_client }}"
+           data-ad-slot="{{ .Site.Params.google_ad_slot }}"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </p>
+    {{ end }}
 	</div>
 </div>
 <div class="clearer"></div>
