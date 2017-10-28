@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html amp>
+<html amp {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
 	{{ partial "head.amp.html" . }}
 
 	<body role="document">
